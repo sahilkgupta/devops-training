@@ -1,10 +1,10 @@
 terraform {
   required_version = ">= 1.3.0"
   backend "s3" {
-    bucket         = "two-tier-terraform-state-bucket"  #Manually created bucket in s3
+    bucket         = "2-tier-terraform-bucket"  #Manually created bucket in s3
     key            = "2tier-architecture"
     region         = "eu-west-2"
-    dynamodb_table = "terraform-lock-table"
+    dynamodb_table = "terraform-locks"   #dynamodb is used for state-locking like no other operation will interrupt
     encrypt        = true
   }
 }
