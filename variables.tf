@@ -47,3 +47,8 @@ variable "db_password" {
 variable "db_instance_class" {
   default = "db.t3.micro"
 }
+
+variable "key_name" {
+  description = "Name of the EC2 key pair to use"
+  type        = string
+}

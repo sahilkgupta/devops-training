@@ -23,12 +23,14 @@ module "vpc" {
  
 module "ec2" {
   source             = "./modules/ec2"
-  public_subnets     = module.vpc.public_subnets
+  public_subnet_ids  = module.vpc.public_subnet_ids
   vpc_id             = module.vpc.vpc_id
   instance_count     = var.instance_count
   instance_type      = var.instance_type
   web_security_group = module.vpc.web_security_group
+  key_name           = var.key_name 
 }
+
  
 module "rds" {
   source            = "./modules/rds"
